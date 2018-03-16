@@ -1,12 +1,13 @@
 package counter;
 
 import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Print the counter value on the console whenever it changes.
  */
-//TODO Delare that this implements java.util.Observer
-public class ConsoleView  {
+
+public class ConsoleView implements Observer{
 	private Counter counter;
 
 	/**
@@ -17,6 +18,14 @@ public class ConsoleView  {
 	public ConsoleView(Counter counter) {
 		this.counter = counter;
 	}
-
-	//TODO Write the observer method
-}
+	/**
+	 * Updata data in console
+	 */
+	@Override
+	public void update(Observable o, Object arg) {
+		if(arg!=null)
+			System.out.println(arg);
+		System.out.printf("Count : %d \n",counter.getCount());
+	}
+	
+	}

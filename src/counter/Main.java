@@ -18,12 +18,13 @@ import javafx.fxml.FXMLLoader;
  * 
  */
 public class Main extends Application {
-	
+	/**
+	 * Initialize of fxml for start application
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		// Create the Counter object (the "model" part of our app)
 		Counter counter = new Counter();
-		
 		try {
 			URL url = getClass().getResource("ClickUI.fxml");
 			if (url == null) {
@@ -41,7 +42,7 @@ public class Main extends Application {
 			// Dependency Injection:
 			// Set the Counter object we want the view to update.
 			
-			//TODO set a reference to Counter in the controller
+			controller.setCounter(counter);
 
 			// Build and show the scene
 			Scene scene = new Scene(root);
@@ -57,21 +58,23 @@ public class Main extends Application {
 		// Add an observer that displays the Counter value on console.
 		// Dependency Injection: 
 		// We set a reference to the counter using the constructor.
-		
-		//TODO Create a ConsoleView with dependency injection.
-		
-		//TODO Add ConsoleView as an observer of Counter
+		ConsoleView console=new ConsoleView(counter);
+		counter.addObserver(console);
+	
 		
 		
 		// Create another window that references the SAME counter. 
 		
-		//TODO: Complete the CounterView class.
-		//CounterView view = new CounterView(counter);
-		
-		//TODO Add CounterView as observer.
-		//TODO Show CounterView by calling its run() method
-	}
 	
+		CounterView counterView=new CounterView(counter);
+		counter.addObserver(counterView);
+		counterView.run();
+		
+	}
+	/**
+	 * Launch program
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
