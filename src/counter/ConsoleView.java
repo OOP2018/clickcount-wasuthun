@@ -8,6 +8,7 @@ import java.util.Observer;
  */
 
 public class ConsoleView implements Observer{
+	
 	private Counter counter;
 
 	/**

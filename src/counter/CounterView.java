@@ -74,5 +74,6 @@ public class CounterView extends Stage implements java.util.Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		displayCount();
-	}	
+	}
+	
 }

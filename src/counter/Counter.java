@@ -38,4 +38,5 @@ public class Counter extends Observable{
 	public int getCount() {
 		return count;
 	}
+	
 }

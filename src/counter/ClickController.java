@@ -39,4 +39,5 @@ public class ClickController {
 	public void minusButtonHandler(ActionEvent event) {
 		counter.add(-1);	
 	}
+	
 }

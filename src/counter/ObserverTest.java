@@ -25,4 +25,5 @@ public class ObserverTest {
 			counter.add(howmany);
 		}
 	}
+	
 }
